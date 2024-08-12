@@ -1,0 +1,37 @@
+---
+title: "diamonds"
+format: html
+editor: visual
+date: now
+date-format: YYYY-MM-DDTHH:mm:ssZ
+---
+
+```{r}
+#| label: packages
+#| echo: false
+#| output: false
+library(ggplot2)
+```
+
+## hello
+
+a quick visualization of the diamonds data, executed on
+
+```{r}
+#| label: execution-time
+#| echo: false
+Sys.time()
+```
+
+## let's see some data
+
+what's interesting?
+
+```{r}
+#| label: viz
+#| echo: false
+
+ggplot(diamonds, aes(clarity, depth)) + 
+  geom_boxplot() +
+  facet_wrap(~cut)
+```
