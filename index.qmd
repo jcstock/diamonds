@@ -10,17 +10,19 @@ date-format: YYYY-MM-DDTHH:mm:ssZ
 #| label: packages
 #| echo: false
 #| output: false
+library(glue)
 library(ggplot2)
 ```
 
 ## hello
 
-a quick visualization of the diamonds data, executed on
+a quick visualization of the diamonds data,
 
 ```{r}
 #| label: execution-time
 #| echo: false
-Sys.time()
+curTime <- Sys.time()
+glue::glue("executed on: {curTime}")
 ```
 
 ## let's see some data
@@ -31,7 +33,7 @@ what's interesting?
 #| label: viz
 #| echo: false
 
-ggplot(diamonds, aes(clarity, depth)) + 
+ggplot2::ggplot(diamonds, aes(clarity, depth)) + 
   geom_boxplot() +
   facet_wrap(~cut)
 ```
